@@ -2,7 +2,6 @@
   <% if @pin.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@pin.errors.count, "error") %> prohibited this pin from being saved:</h2>
-
       <ul>
       <% @pin.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,12 +9,25 @@
       </ul>
     </div>
   <% end %>
+<br>  
+<form role="form">
+  <div class="form-group">
+    <label for="description">
+      <%= f.label :description %>
+    </label>
+ 
+ <% if @pin.errors.any? %>
+    <div id="error_explanation">
+      <span class="glyphicon glyphicon-asterisk"></span> <%= description_error %>
+    <div>
+ <% end %>
 
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="actions">
+  <div class="form-group">
+ <%= f.text_field :description %>
+ 
+  <div class="form-group">
     <%= f.submit %>
   </div>
+</form>
+<br>
 <% end %>

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get "/about" => "page#about"
   get "/more" => "page#more"
+  get "/pins" => "page#pins"
   root 'page#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

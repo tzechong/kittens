@@ -8,6 +8,4 @@ class CreatePins < ActiveRecord::Migration
   end
 end
 
-class Pin < ActiveRecord::Base
-  validates :description, presence: true
-end
+

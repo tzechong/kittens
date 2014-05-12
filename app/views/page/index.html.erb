@@ -1,9 +1,13 @@
 <center>
 
 <div class="jumbotron">
-
-	<h1>Hello World</h1>
+  <h1>Hello World</h1>
 	<h2>Kittens are adorable!</h2>
+		<% if user_signed_in? %>
+        <h3><span class="glyphicon glyphicon-user"></span> <%= link_to current_user.email, "/pins" %></h3>
+       <% else %>
+    <% end %>
+    <br><br>
 	<div class="col-md-4">
 		<img class="img-responsive" src="http://www.fullhdwallpapers3d.com/wp-content/uploads/2013/12/Cute-Cats-and-kittens-images-.jpg" width="259px" height="194px">
 		<p>If you ever feel like this poor <i>grumpy</i> cat </p>
