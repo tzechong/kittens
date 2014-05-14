@@ -4,7 +4,7 @@
   <h1>Hello World</h1>
 	<h2>Kittens are adorable!</h2>
 		<% if user_signed_in? %>
-        <h3><span class="glyphicon glyphicon-user"></span> <%= link_to current_user.email, "/pins" %></h3>
+        <h3><span class="glyphicon glyphicon-user"></span> <%= link_to current_user.email, pins_path %></h3>
        <% else %>
     <% end %>
     <br><br>

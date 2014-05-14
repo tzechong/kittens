@@ -1,33 +1,25 @@
-<%= form_for(@pin) do |f| %>
+<%= form_for(@pin, html: { class: "form-horizontal"} ) do |f| %>
   <% if @pin.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@pin.errors.count, "error") %> prohibited this pin from being saved:</h2>
+    <div class="alert alert-danger alert-dismissable">
+      <button class="close" aria-hidden="true" data-dismiss="alert" type="button">&times;</button>
+
+      <h4><%= pluralize(@pin.errors.count, "error") %> prohibited this pin from being saved:</h4>
+
       <ul>
-      <% @pin.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% @pin.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
-<br>  
-<form role="form">
-  <div class="form-group">
-    <label for="description">
-      <%= f.label :description %>
-    </label>
- 
- <% if @pin.errors.any? %>
-    <div id="error_explanation">
-      <span class="glyphicon glyphicon-asterisk"></span> <%= description_error %>
-    <div>
- <% end %>
 
-  <div class="form-group">
- <%= f.text_field :description %>
- 
-  <div class="form-group">
-    <%= f.submit %>
+  <div class="form-group <%= description_error %>">
+    <%= f.label :description, class: "control-label col-sm-2" %>
+    <div class="col-sm-10">
+      <%= f.text_field :description, class: "form-control" %>
+    </div>
   </div>
-</form>
-<br>
+  <div class="actions col-sm-offset-2">
+    <%= f.submit class: "btn btn-default" %>
+  </div>
 <% end %>
